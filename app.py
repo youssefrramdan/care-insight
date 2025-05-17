@@ -51,6 +51,40 @@ treatment_map = {
     }
 }
 
+@app.route('/', methods=['GET'])
+def home():
+    """Homepage with project information and API documentation"""
+    return jsonify({
+        "project_name": "Care Insight",
+        "description": "An API for cancer mutation classification and personalized treatment recommendations",
+        "creator": "Youssef Ramdan",
+        "version": "1.0.0",
+        "endpoints": {
+            "/": "This documentation page",
+            "/predict": "POST - Predicts mutation class and recommends treatment",
+            "/health": "GET - Health check for monitoring"
+        },
+        "usage": {
+            "method": "POST to /predict",
+            "content_type": "application/json",
+            "parameters": {
+                "input1": "Gene name (e.g., BRCA1, TP53)",
+                "input2": "Genetic variation (e.g., V600E, G12D)",
+                "input3": "Clinical text description"
+            },
+            "example_request": {
+                "input1": "BRCA1",
+                "input2": "V600E",
+                "input3": "Patient has family history of breast cancer"
+            },
+            "example_response": {
+                "prediction": 1,
+                "treatment": "Standard therapy; consider immunotherapy or PARP inhibitors if BRCA-mutated.",
+                "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7405942/"
+            }
+        }
+    })
+
 @app.route('/predict', methods=['POST'])
 def predict():
     gene = request.json.get("input1")
