@@ -87,9 +87,9 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    gene = request.json.get("input1")
-    variation = request.json.get("input2")
-    text = request.json.get("input3")
+    gene = request.json.get("gene")
+    variation = request.json.get("variation")
+    text = request.json.get("text")
 
     # Transform inputs
     gene_vector = gene_vectorizer.transform([gene])
