@@ -58,7 +58,6 @@ def home():
         "project_name": "Care Insight",
         "description": "An API for cancer mutation classification and personalized treatment recommendations",
         "creator": "Youssef Ramdan",
-        "version": "1.0.0",
         "endpoints": {
             "/": "This documentation page",
             "/predict": "POST - Predicts mutation class and recommends treatment",
@@ -77,11 +76,6 @@ def home():
                 "input2": "V600E",
                 "input3": "Patient has family history of breast cancer"
             },
-            "example_response": {
-                "prediction": 1,
-                "treatment": "Standard therapy; consider immunotherapy or PARP inhibitors if BRCA-mutated.",
-                "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7405942/"
-            }
         }
     })
 
